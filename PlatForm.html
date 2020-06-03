@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <!--link标签用来链接外部资源的标签-->
+    <link rel="short icon" href="Resource/Resource/icon.png">
+    <link rel="stylesheet" href="ExternalStyle.css">
+    <script type="text/javascript" src="CommentClass.js"></script>
+    <title>081417155李园园</title>
+    <style>
+        article{
+            margin: 20px;
+        }
+        h3{
+            color:red;
+            font-size: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dddddd;
+        }
+        h4{
+            font-size: 14px;
+        }
+        p{
+            font-size: 12px;
+            /*首行缩进*/
+            text-indent: 2em;
+            /*文本行间距*/
+            line-height: 2em;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <span>小滴服务</span>
+</header>
+<section class="DS_second_section">
+    <img src="Resource/Resource/banner4.png" alt="网络加载出来不了">
+</section>
+<article>
+    <h3 id="title"></h3>
+    <h4 id="subTitle"></h4>
+    <p id="info"></p>
+    <script>
+        requestMethod('aboutus', "", 'get', function(str){
+
+            var title_content = document.getElementById("title");
+            var subTitle_content = document.getElementById("subTitle");
+            var info_content = document.getElementById("info");
+
+            title_content.innerHTML = str.title;
+            subTitle_content.innerHTML = str.subTitle;
+            info_content.innerHTML = str.info;
+
+        });
+        //这种方法可能会和登录页面有冲突
+        // function  assgin(obj1) {
+        //     var title_tag=document.getElementById('title');
+        //     var subTitle_tag=document.getElementById('subTitle');
+        //     var info_tag=document.getElementById('info');
+        //     title_tag.innerHTML = obj1.title;
+        //     subTitle_tag.innerHTML = obj1.subTitle;
+        //     info_tag.innerHTML = obj1.info;
+        // }
+        // //获取缓存中的数据
+        // var obj_text=JSON.parse(localStorage.getItem("platform_json"));
+        // if(obj_text){
+        //     var obj1=obj_text.data;
+        //     assgin(obj1);
+        // }else{
+        //         requestMethod('aboutus', '', 'get', function (str,obj) {
+        //         assgin(obj);
+        //         //数据保存到本地缓存
+        //         window.localStorage.setItem("platform_json", obj);
+        //     });
+        // }
+    </script>
+</article>
+<footer>
+    <a href="DropletService.html"><img src="Resource/Resource/nav10.png" alt=""><span >>小滴服务</span></a>
+    <a href="BusyProject.html"><img src="Resource/Resource/nav20.png" alt=""><span>企业项目</span></a>
+    <a href="ServiceProcess.html"><img src="Resource/Resource/nav30.png" alt=""><span>服务流程</span></a>
+    <a href=""><img src="Resource/Resource/nav41.png" alt=""><span style="color: red">平台风采</span></a>
+    <a href="MyDroplet.html"><img src="Resource/Resource/nav50.png" alt=""><span>我的小滴</span></a>
+</footer>
+</body>
+</html>
