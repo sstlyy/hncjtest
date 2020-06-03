@@ -20,8 +20,8 @@ function requestMethod(passage1, passage2, method, callback) {
         //status == 200 表示数据成功返回
         if (xhr.readyState == 4 && xhr.status == 200) {
             var res = JSON.parse(xhr.responseText);
-            var str = res.data;
-            callback(str);
+            var obj = res.data;
+            callback(obj, xhr.responseText);
         }
     }
 }

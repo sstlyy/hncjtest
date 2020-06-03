@@ -41,38 +41,24 @@
     <h4 id="subTitle"></h4>
     <p id="info"></p>
     <script>
-        requestMethod('aboutus', "", 'get', function(str){
-
-            var title_content = document.getElementById("title");
-            var subTitle_content = document.getElementById("subTitle");
-            var info_content = document.getElementById("info");
-
-            title_content.innerHTML = str.title;
-            subTitle_content.innerHTML = str.subTitle;
-            info_content.innerHTML = str.info;
-
-        });
-        //这种方法可能会和登录页面有冲突
-        // function  assgin(obj1) {
-        //     var title_tag=document.getElementById('title');
-        //     var subTitle_tag=document.getElementById('subTitle');
-        //     var info_tag=document.getElementById('info');
-        //     title_tag.innerHTML = obj1.title;
-        //     subTitle_tag.innerHTML = obj1.subTitle;
-        //     info_tag.innerHTML = obj1.info;
-        // }
-        // //获取缓存中的数据
-        // var obj_text=JSON.parse(localStorage.getItem("platform_json"));
-        // if(obj_text){
-        //     var obj1=obj_text.data;
-        //     assgin(obj1);
-        // }else{
-        //         requestMethod('aboutus', '', 'get', function (str,obj) {
-        //         assgin(obj);
-        //         //数据保存到本地缓存
-        //         window.localStorage.setItem("platform_json", obj);
-        //     });
-        // }
+        function assign(obj){
+            var title_tag = document.getElementById("title");
+            var subTitle_tag = document.getElementById("subTitle");
+            var info_tag = document.getElementById("info");
+            title_tag.innerHTML = obj.title;
+            subTitle_tag.innerHTML = obj.subTitle;
+            info_tag.innerHTML = obj.info;
+        }
+        var obj_text =  JSON.parse(localStorage.getItem("platform_json"));
+        if (obj_text) {
+            var obj = obj_text.data;
+            assign(obj);
+        } else {
+            requestMethod('get', 'aboutus', "", function(obj, obj1){
+                assign(obj);
+                window.localStorage.setItem("platform_json", obj1);
+            });
+        }
     </script>
 </article>
 <footer>
