@@ -9,7 +9,7 @@ function requestMethod(passage1, passage2, method, callback) {
     //1.创建对象
     var xhr = new XMLHttpRequest();
     //2.与服务器建立连接
-    xhr.open(method, 'https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/' + passage1);
+    xhr.open(method,'https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/'+passage1);
     //3.设置头部信息
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     //4.发送请求
