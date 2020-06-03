@@ -54,7 +54,7 @@
             var obj = obj_text.data;
             assign(obj);
         } else {
-            requestMethod('get', 'aboutus', "", function(obj, obj1){
+            requestMethod('get', 'aboutus', '', function(obj, obj1){
                 assign(obj);
                 window.localStorage.setItem("platform_json", obj1);
             });
